@@ -17,9 +17,9 @@
 
 Picture this: It's 2020, and you're a researcher with a brilliant idea. You want to customize GPT-3 for your specific task—maybe translating ancient languages or writing better code. There's just one tiny problem: GPT-3 has 175 billion parameters. Training it from scratch would cost $12 million and require a supercomputer.
 
-You stare at your laptop—perhaps a modest machine like the **GMKtec K11 with its AMD Ryzen 9 8945HS and Radeon 780M**—and laugh at the absurdity. It's like trying to rebuild the Golden Gate Bridge with a toy hammer.
+You stare at your laptop—perhaps a modest machine like the **GMKtec K11 with its AMD Ryzen 9 8945HS and Radeon 780M, leveraging up to 8GB or more of shared system memory for GPU tasks**—and laugh at the absurdity. It's like trying to rebuild the Golden Gate Bridge with a toy hammer.
 
-But what if I told you that by 2024, that same laptop could fine-tune models even more powerful than GPT-3? What if the impossible became not just possible, but *easy*?
+But what if I told you that by 2025, that same laptop could fine-tune models even more powerful than GPT-3? What if the impossible became not just possible, but *easy*?
 
 This is the story of how a few brilliant researchers didn't just move mountains—they taught us we never needed to move them in the first place.
 
@@ -119,7 +119,7 @@ The numbers tell the story:
 
 For context, a 1-point improvement in AI benchmarks is considered significant. DoRA was delivering 3-4 point jumps consistently.
 
-> **🎯 Tutorial Connection**: DoRA is the star of our `10-cutting-edge-peft/` module. When you compare LoRA vs DoRA performance on your K11, you'll see these exact improvements in action. It's the difference between good and great fine-tuning.
+> **🎯 Tutorial Connection**: DoRA is the star of our `06-advanced-techniques/` module. When you compare LoRA vs DoRA performance on your K11, you'll see these exact improvements in action. It's the difference between good and great fine-tuning.
 
 **📚 Learn More:**
 - **Original Paper**: [DoRA: Weight-Decomposed Low-Rank Adaptation](https://arxiv.org/abs/2402.09353)
@@ -132,7 +132,7 @@ For context, a 1-point improvement in AI benchmarks is considered significant. D
 
 ### The Problem with Perfection
 
-DoRA was amazing, but it had one catch: it still required the same memory as LoRA. For many researchers with modest hardware—like our beloved GMKtec K11 with its 2GB of VRAM—even LoRA could be a stretch when working with larger models.
+DoRA was amazing, but it had one catch: it still required the same memory as LoRA. For many researchers with modest hardware—like our beloved GMKtec K11 with up to 8GB or more of shared system memory allocated for GPU tasks—even LoRA could be a stretch when working with larger models.
 
 Enter Answer.AI, the innovative research lab that believes AI should be accessible to everyone, not just those with million-dollar GPU clusters.
 
@@ -162,12 +162,12 @@ QDoRA = DoRA_performance + Quantization_efficiency
 **The K11 Connection**
 
 This was a game-changer for hardware like your GMKtec K11. Suddenly, you could:
-- Run **7B models in 2GB VRAM** (previously impossible)
+- Run **7B models in 8GB shared system memory** (previously impossible)
 - Get **DoRA-level performance** with quantization efficiency
 - Train models that outperformed full fine-tuning
 - Do it all on a consumer desktop
 
-> **🎯 Tutorial Connection**: QDoRA is featured prominently in our `04-quantization/` and `10-cutting-edge-peft/` modules. When you see "EXTREME_CONFIG" in CLAUDE.md (1 batch size, 4-bit quantization), you're using the exact memory-efficient techniques that make QDoRA possible on the K11.
+> **🎯 Tutorial Connection**: QDoRA is featured prominently in our `04-quantization/` and `06-advanced-techniques/` modules. When you see "EXTREME_CONFIG" in CLAUDE.md (1 batch size, 4-bit quantization), you're using the exact memory-efficient techniques that make QDoRA possible on the K11.
 
 **📚 Learn More:**
 - **Answer.AI Blog**: [QDoRA: Quantized DoRA Fine-tuning](https://www.answer.ai/posts/2024-03-14-qdora.html)
@@ -229,7 +229,7 @@ Perhaps most importantly, PiSSA models learned faster. In our tutorial environme
 - **Less electricity cost** (important for those long training sessions)
 - **Faster experimentation cycles** (try more ideas in the same time)
 
-> **🎯 Tutorial Connection**: PiSSA techniques are integrated into our `10-cutting-edge-peft/` advanced methods. When you compare initialization strategies in the tutorials, you'll see how starting "smart" beats starting "random" every time. It's particularly noticeable in our `00-first-time-beginner/` Qwen2.5 0.6B examples—the same model that takes 30 minutes with random initialization can converge in 15 minutes with PiSSA!
+> **🎯 Tutorial Connection**: PiSSA techniques are integrated into our `06-advanced-techniques/` module. When you compare initialization strategies in the tutorials, you'll see how starting "smart" beats starting "random" every time. It's particularly noticeable in our `00-first-time-beginner/` Mistral Large 2 examples—the same model that takes 30 minutes with random initialization can converge in 15 minutes with PiSSA!
 
 **📚 Learn More:**
 - **Research Paper**: [PiSSA: Principal Singular Values and Singular Vectors Adaptation](https://arxiv.org/abs/2404.02948)
@@ -287,19 +287,15 @@ The breakthrough went deeper than just cost savings. Constitutional AI allowed r
 - **Harmlessness**: Avoid generating harmful content
 - **Honesty**: Acknowledge uncertainty rather than hallucinate
 
-> **🎯 Tutorial Connection**: This is the foundation of our `07-system-prompt-modification/` and `12-advanced-rlhf/` modules. When you use constitutional training on the K11 to create uncensored models, you're using the same techniques that major AI labs employ—but adapted for your specific needs. The "20-40 minute training time" mentioned in CLAUDE.md? That's RLAIF making advanced alignment accessible on consumer hardware.
-
-**The Democratization Impact**
-
-Perhaps most importantly, RLAIF democratized advanced AI alignment. Previously, only labs with million-dollar budgets could afford RLHF. Now, anyone with a decent computer (like our GMKtec K11) could train aligned, helpful AI systems.
-
-It was the difference between having to hire a full orchestra and being able to create symphonies with a digital audio workstation.
+> **🎯 Tutorial Connection**: This is the foundation of our `07-system-prompt-modification/` module. When you use constitutional training on the K11 to create aligned models, you're using the same techniques that major AI labs employ—but adapted for your specific needs. The "20-40 minute training time" mentioned in CLAUDE.md? That's RLAIF making advanced alignment accessible on consumer hardware.
 
 **📚 Learn More:**
 - **Constitutional AI Paper**: [Constitutional AI: Harmlessness from AI Feedback](https://arxiv.org/abs/2212.08073)
 - **RLAIF Research**: [RLAIF: Scaling Reinforcement Learning from Human Feedback](https://arxiv.org/abs/2309.00267)
 - **Anthropic Blog**: [Constitutional AI: Harmlessness from AI Feedback](https://www.anthropic.com/news/constitutional-ai-harmlessness-from-ai-feedback)
 - **Implementation Guide**: [TRL Constitutional Training](https://huggingface.co/docs/trl/constitutional_ai)
+
+---
 
 ## Chapter 6: The LLaMA-Factory Revolution - When Complexity Became Simple
 
@@ -317,7 +313,7 @@ The creators of LLaMA-Factory realized something profound: not everyone who need
 
 LLaMA-Factory introduced something revolutionary: a web interface for fine-tuning. You could:
 
-- **Select from 100+ models** including the latest releases
+- **Select from 100+ models** including the latest releases like Mistral Large 2
 - **Choose your training method** (LoRA, DoRA, RLHF) from dropdown menus
 - **Upload your data** by dragging and dropping files
 - **Monitor training** with real-time charts and graphs
@@ -331,11 +327,11 @@ llamafactory-cli webui
 
 **The Day-0 Promise**
 
-Perhaps most remarkably, LLaMA-Factory committed to "Day-0" support for new models. When Meta released Llama 3.1, it was supported in LLaMA-Factory within hours. When Qwen2.5 dropped, it was there immediately.
+Perhaps most remarkably, LLaMA-Factory committed to "Day-0" support for new models. When Meta released Llama 3.1, it was supported in LLaMA-Factory within hours. When Mistral Large 2 dropped, it was there immediately.
 
 This wasn't just convenience—it was revolution. Previously, waiting 3-6 months for framework support was normal. LLaMA-Factory made cutting-edge models accessible instantly.
 
-> **🎯 Tutorial Connection**: This is why we added `08-llamafactory/` to our learning journey. After mastering the fundamentals in modules 01-07, LLaMA-Factory becomes your "mission control" for advanced experimentation. The web interface is perfect for students who want to focus on data and results rather than configuration files.
+> **🎯 Tutorial Connection**: This is why we added `08-llamafactory/` to our learning journey. After mastering the fundamentals in modules 00-07, LLaMA-Factory becomes your "mission control" for advanced experimentation. The web interface is perfect for students who want to focus on data and results rather than configuration files.
 
 ### The Production Pipeline Dream
 
@@ -348,23 +344,63 @@ But LLaMA-Factory went further. It wasn't just about making fine-tuning easy—i
 
 It was like having a simple calculator that could also solve differential equations when needed.
 
+> **🎯 Tutorial Connection**: Our `03-ollama/` module complements LLaMA-Factory by providing deployment scripts for running fine-tuned models locally or on edge devices, making your AI accessible anywhere.
+
 **📚 Learn More:**
 - **LLaMA-Factory GitHub**: [hiyouga/LLaMA-Factory](https://github.com/hiyouga/LLaMA-Factory)
 - **Documentation**: [LLaMA-Factory Docs](https://llamafactory.readthedocs.io/)
 - **Web Interface Demo**: [LLaMA-Factory WebUI Tutorial](https://github.com/hiyouga/LLaMA-Factory/wiki/Web-UI)
 - **Model Support**: [Supported Models List](https://github.com/hiyouga/LLaMA-Factory#supported-models)
 
+---
+
+## Chapter 7: The DeepSeek Moment - A Shockwave in Hangzhou
+
+### The Underdog’s Triumph
+
+In January 2025, a storm brewed in Hangzhou, China, where a relatively unknown startup named DeepSeek, backed by Liang Wenfeng’s High-Flyer hedge fund, unleashed DeepSeek-R1. This wasn’t just another language model—it was a revolution. Built on Nvidia’s H800 chips, constrained by U.S. export controls, R1 matched the reasoning prowess of OpenAI’s o1 for a mere $5.6 million, a fraction of the $100 million-plus budgets of Western giants. It was like a scrappy alchemist turning lead into gold, defying the giants with ingenuity.
+
+**The Technical Sorcery**
+
+DeepSeek’s secret lay in its Mixture-of-Experts (MoE) architecture, a clever trick that activated only the most relevant parts of the model for each query, slashing computational demands. Paired with Multihead Latent Attention (MLA), it processed complex data with surgical precision. Here’s a glimpse of MoE in action:
+
+```python
+class MixtureOfExperts:
+    def __init__(self, experts):
+        self.experts = experts  # List of specialized sub-models
+        self.gate = GatingNetwork()  # Decides which expert to use
+
+    def forward(self, input):
+        # Gate selects the most relevant experts for the input
+        expert_weights = self.gate(input)
+        output = 0
+        for expert, weight in zip(self.experts, expert_weights):
+            output += weight * expert(input)
+        return output
+```
+
+Reinforcement learning, rather than heavy supervised fine-tuning, sharpened R1’s skills in math and coding, making it a formidable rival. Available under the MIT License, R1 empowered developers worldwide to fine-tune state-of-the-art models on modest hardware like the GMKtec K11.
+
+**The Wall Street Earthquake**
+
+The real drama unfolded on January 27, 2025, when DeepSeek’s chatbot surged to the top of Apple’s U.S. App Store, outpacing ChatGPT. Wall Street reeled: the Nasdaq plummeted 3.1%, with Nvidia losing $600 billion in market value in a single day—the largest one-day drop in U.S. history. Utility stocks like Constellation Energy and Vistra, banking on AI’s power-hungry data centers, shed over 20%. Marc Andreessen called it a “Sputnik moment,” and President Trump labeled it a “wake-up call” for American tech.
+
+Yet, amidst the chaos, DeepSeek’s open-source ethos sparked a global renaissance. Startups and hobbyists, armed with R1’s code, began crafting bespoke AI solutions, from financial advisors to medical diagnostics, all running on consumer-grade hardware.
+
+> **🎯 Tutorial Connection**: Explore DeepSeek-R1 in our `05-examples/` module, where you can fine-tune it using LLaMA-Factory on the K11. Compare its MoE efficiency to Mistral Large 2 in `06-advanced-techniques/` and deploy it locally with `03-ollama/` for real-world applications.
+
+**📚 Learn More:**
+- **DeepSeek Announcement**: [DeepSeek-R1 Release](https://www.deepseek.com/)
+- **MoE Overview**: [Mixture-of-Experts Explained](https://huggingface.co/blog/moe)
+- **Market Impact**: [Bloomberg: DeepSeek’s Market Shock](https://www.bloomberg.com/news/articles/2025-01-28/ai-startup-deepseek-shakes-up-market)
+
+---
+
 ## Epilogue: The Future Is in Your Hands
 
 ### Where We Stand Today
 
-As we reach the end of 2024 and look toward 2025, the fine-tuning revolution has fundamentally changed what's possible with AI. The techniques we've explored—from Hu's foundational LoRA to Liu's breakthrough DoRA—represent more than just academic achievements. They represent the democratization of artificial intelligence.
-
-**The Personal Computer Moment**
-
-We're living through AI's equivalent of the personal computer revolution. Just as the PC moved computing from corporate mainframes to individual desks, these fine-tuning breakthroughs are moving AI development from billion-dollar labs to personal workstations.
-
-Your GMKtec K11, with its modest 2GB of VRAM, can now:
+As we stand in mid-2025 and look toward 2026, the fine-tuning revolution has fundamentally changed what's possible with AI. From Hu's foundational LoRA to DeepSeek’s disruptive R1, these breakthroughs represent the democratization of artificial intelligence. Your GMKtec K11, with up to 8GB or more of shared system memory allocated for GPU tasks, can now:
 - Fine-tune models that rival GPT-3 in capability
 - Train domain-specific AI that outperforms general models
 - Experiment with techniques that didn't exist just months ago
@@ -374,7 +410,7 @@ Your GMKtec K11, with its modest 2GB of VRAM, can now:
 
 **For Lecturers: Teaching the Revolution**
 
-When you teach these concepts, remember you're not just explaining techniques—you're sharing the keys to the future. Each student who masters these skills becomes capable of solving problems that previously required teams of PhD researchers.
+When you teach these concepts, you're not just explaining techniques—you're sharing the keys to the future. Each student who masters these skills becomes capable of solving problems that previously required teams of PhD researchers.
 
 **The Three-Act Structure for Your Lectures:**
 
@@ -383,9 +419,9 @@ When you teach these concepts, remember you're not just explaining techniques—
 - Show them the wall that blocked progress
 
 **Act II: The Breakthrough** (Reveal the genius)
-- Walk through each discovery: LoRA, DoRA, PiSSA, RLAIF
-- Use analogies: sculptors, symphonies, master chefs
-- Show concrete numbers: +3.7 points, 95% memory savings
+- Walk through each discovery: LoRA, DoRA, PiSSA, RLAIF, DeepSeek’s MoE
+- Use analogies: sculptors, symphonies, alchemists
+- Show concrete numbers: +3.7 points, 95% memory savings, $5.6 million training
 
 **Act III: The Future** (Inspire them to contribute)
 - "What breakthrough will YOU discover?"
@@ -395,55 +431,54 @@ When you teach these concepts, remember you're not just explaining techniques—
 ### **Interactive Teaching Techniques**
 
 **The Sculptor Exercise**
-Give students actual clay. Have some use crude tools (LoRA), others use precision instruments (DoRA). Which sculptures turn out better? Why?
+Give students actual clay. Have some use crude tools (LoRA), others use precision instruments (DoRA), and some wield DeepSeek’s MoE efficiency. Which sculptures turn out better? Why?
 
 **The Memory Game**
-Show RAM usage in real-time as you load different model configurations. Students see memory drop from 32GB to 2GB with quantization.
+Show RAM usage in real-time as you load Mistral Large 2 or DeepSeek-R1. Watch memory drop from 32GB to 8GB with quantization in `04-quantization/`.
 
 **The Performance Race**
-Run identical fine-tuning tasks with LoRA vs DoRA vs PiSSA. Students watch accuracy improve in real-time, seeing the future beat the past.
+Run identical fine-tuning tasks with LoRA vs DoRA vs DeepSeek-R1 in `06-advanced-techniques/`. Students see accuracy soar in real-time, witnessing the future outpace the past.
 
-> **🎯 Complete Tutorial Integration**: Every technique in this story has hands-on implementation in our learning modules. Students don't just learn about these breakthroughs—they recreate them, improve on them, and discover their own innovations.
+> **🎯 Complete Tutorial Integration**: Every technique in this story has hands-on implementation in our learning modules. Students don't just learn about these breakthroughs—they recreate them, improve on them, and discover their own innovations. Explore practical applications in `05-examples/` to see real-world use cases in action.
 
-### The Next Chapter: What's Coming in 2025
+### The Next Chapter: What's Coming in 2026
 
-As we look ahead, several emerging trends promise to make our story even more exciting:
+As we look to 2026, the DeepSeek moment has rewritten the AI playbook. Emerging trends promise to make our story even more thrilling:
 
 **Multimodal Revolution**
-Soon, you won't just fine-tune language models—you'll adapt vision + language systems together. Imagine training a model that can write code AND understand UI screenshots simultaneously.
+Now in 2025, you're adapting vision + language systems together. Imagine training a model that writes code and understands UI screenshots simultaneously. Our `05-examples/` module includes multimodal experiments with LLaVA on the K11, blending text and image understanding.
 
-> **🎯 Tutorial Preview**: Our `11-multimodal/` module will let you experiment with LLaVA fine-tuning on the K11, combining text and image understanding in ways that seemed impossible just years ago.
-
-**The Federated Future** 
-Training will become distributed and private. Your K11 could collaborate with thousands of other devices to train better models while keeping all data local.
+**The Federated Future**
+Training is becoming distributed and private. Your K11 could collaborate with thousands of devices to train better models while keeping data local, a technique you can prototype in `06-advanced-techniques/`.
 
 **Self-Healing AI**
-Models will continuously improve from user feedback, automatically fixing errors and adapting to new domains without manual intervention.
+Models will evolve from user feedback, automatically fixing errors and adapting to new domains. Experiment with these concepts in `07-system-prompt-modification/` using RLAIF.
+
+**The DeepSeek Ripple Effect**
+DeepSeek’s efficiency has sparked a bifurcated AI market: premium players like OpenAI chase existential breakthroughs, while open-source models like DeepSeek-R2 (slated for 2026) empower small businesses and startups. Jevons’ Paradox suggests cheaper AI will drive exponential adoption, fueling specialized models in healthcare, finance, and beyond. Early experiments, like ChatGPT-driven portfolios yielding 29.22% gains, hint at AI financial advisors outperforming humans. But beware: cyberattacks on DeepSeek’s servers in 2025 exposed vulnerabilities, and bans in Italy and Australia signal privacy challenges ahead.
 
 ### The Most Important Lesson
 
-Throughout this journey—from Hu's first LoRA experiments to the cutting-edge techniques of 2024—one pattern emerges: **the most profound breakthroughs often come from asking simple questions that everyone else ignored.**
-
+From Hu’s LoRA to DeepSeek’s R1, one pattern shines: **breakthroughs come from asking simple questions others ignored.**
 - Hu asked: "Do we really need to update ALL the weights?"
 - Liu asked: "What is LoRA actually doing to the weight structure?"
-- PiSSA researchers asked: "Why start with random numbers?"
-- Answer.AI asked: "Why can't DoRA work with quantization?"
+- DeepSeek asked: "Can we match the giants with less?"
 
 ### Your Students' Opportunity
 
-The students sitting in your classroom today have the same tools that created these breakthroughs. They have:
-- **Access to cutting-edge models** through Hugging Face
-- **Powerful techniques** (LoRA, DoRA, RLAIF) 
-- **Affordable hardware** (like the K11) that can run everything
+Your students have the same tools that created these breakthroughs:
+- **Cutting-edge models** like Mistral Large 2 and DeepSeek-R1 via Hugging Face
+- **Powerful techniques** (LoRA, DoRA, RLAIF, MoE) 
+- **Affordable hardware** like the K11
 - **Open-source frameworks** that democratize experimentation
 
-Most importantly, they have **fresh eyes** that might see what experienced researchers missed.
+Most importantly, they have **fresh eyes** to see what others missed.
 
 ### The Call to Adventure
 
-*"Every technique in this story began with someone like you, staring at a problem that seemed impossible. Hu couldn't afford to retrain GPT-3. Liu couldn't understand why LoRA worked so well. The Answer.AI team couldn't accept that efficiency and performance were mutually exclusive."*
+*"Every technique in this story began with someone like you, staring at an impossible problem. Hu couldn’t afford to retrain GPT-3. DeepSeek couldn’t access the best chips. Yet they changed the world."*
 
-*"What impossible problem are YOU going to solve? What simple question will you ask that changes everything? The next chapter of this story is waiting for you to write it."*
+*"What impossible problem will YOU solve? What simple question will you ask? The next chapter is yours to write."*
 
 ---
 
@@ -452,36 +487,42 @@ Most importantly, they have **fresh eyes** that might see what experienced resea
 ### **Hands-On Journey Through History**
 
 **Module Path Through the Breakthroughs:**
-- `00-first-time-beginner/`: Experience the "impossible dream" becoming possible
+- `00-first-time-beginner/`: Experience the impossible dream with Mistral Large 2
+- `01-unsloth/`: Accelerate training with Unsloth’s 2x speed boost
 - `02-huggingface-peft/`: Master Hu's LoRA foundation  
-- `10-cutting-edge-peft/`: Implement Liu's DoRA breakthrough
-- `08-llamafactory/`: Use zero-code interfaces for rapid experimentation
-- `12-advanced-rlhf/`: Deploy Constitutional AI and RLAIF
+- `03-ollama/`: Deploy fine-tuned models locally with Ollama
 - `04-quantization/`: Combine efficiency with performance (QDoRA)
+- `05-examples/`: Explore real-world applications, including DeepSeek-R1 and multimodal experiments
+- `06-advanced-techniques/`: Implement DoRA, PiSSA, and MoE breakthroughs
+- `07-system-prompt-modification/`: Deploy Constitutional AI and RLAIF
+- `08-llamafactory/`: Use zero-code interfaces for rapid experimentation
 
 **The Complete Story Arc in Code:**
-Students don't just learn ABOUT these breakthroughs—they recreate the journey, experience the frustrations, celebrate the eureka moments, and emerge ready to create the next chapter.
+Students recreate the journey, experience the frustrations, celebrate the eureka moments, and emerge ready to innovate.
 
 ### **Complete Resource Library**
-- **DoRA Paper**: [Weight-Decomposed Low-Rank Adaptation](https://arxiv.org/abs/2402.09353) - implement it yourself
-- **PiSSA Studies**: [Principal Singular Values Adaptation](https://arxiv.org/abs/2404.02948) - see the speed difference  
-- **RLAIF Research**: [Constitutional AI papers](https://arxiv.org/abs/2212.08073) - train your own aligned models
-- **LLaMA-Factory**: [Zero-code fine-tuning](https://github.com/hiyouga/LLaMA-Factory) - experience the future of accessibility
-- **Unsloth**: [2x faster training](https://github.com/unslothai/unsloth) - memory-efficient fine-tuning
-- **AMD ROCm**: [GPU acceleration guide](https://rocm.docs.amd.com/) - optimize for your hardware
+- **DoRA Paper**: [Weight-Decomposed Low-Rank Adaptation](https://arxiv.org/abs/2402.09353)
+- **PiSSA Studies**: [Principal Singular Values Adaptation](https://arxiv.org/abs/2404.02948)
+- **RLAIF Research**: [Constitutional AI](https://arxiv.org/abs/2212.08073)
+- **DeepSeek Announcement**: [DeepSeek-R1 Release](https://www.deepseek.com/)
+- **MoE Overview**: [Mixture-of-Experts Explained](https://huggingface.co/blog/moe)
+- **LLaMA-Factory**: [Zero-code fine-tuning](https://github.com/hiyouga/LLaMA-Factory)
+- **Unsloth**: [2x faster training](https://github.com/unslothai/unsloth)
+- **Ollama**: [Local model deployment](https://ollama.ai/)
+- **AMD ROCm**: [GPU acceleration guide](https://rocm.docs.amd.com/)
 
 ## 🚀 Quick Start Guide
 
 ### Prerequisites
-- **Hardware**: AMD Ryzen 9 8945HS + Radeon 780M (or similar)
+- **Hardware**: AMD Ryzen 9 8945HS + Radeon 780M (with 8GB+ shared system memory allocated for GPU tasks)
 - **RAM**: 32GB+ recommended
 - **Storage**: Fast NVMe SSD with 100GB+ free space
 
 ### Installation
 ```bash
-# Clone this repository
-git clone https://github.com/your-username/fine_tuning.git
-cd fine_tuning
+# Clone this repository (note: rename to https://github.com/beyhanmeyrali/fine-tuning for correct spelling)
+git clone https://github.com/beyhanmeyrali/fine-tunning.git
+cd fine-tunning
 
 # Start with beginner module
 cd 00-first-time-beginner/
@@ -493,20 +534,24 @@ llamafactory-cli webui  # Opens web interface
 ```
 
 ### Learning Path
-1. **🎯 Start**: `00-first-time-beginner/` (Qwen2.5 0.6B, 30 minutes)
+1. **🎯 Start**: `00-first-time-beginner/` (Mistral Large 2, 30 minutes)
 2. **⚡ Speed**: `01-unsloth/` (2x faster training)
 3. **🔧 Standard**: `02-huggingface-peft/` (LoRA fundamentals)
-4. **🚀 Advanced**: `10-cutting-edge-peft/` (DoRA, PiSSA)
-5. **🖥️ Zero-Code**: `08-llamafactory/` (Web interface)
+4. **🚀 Deploy**: `03-ollama/` (Local model deployment)
+5. **🔄 Efficiency**: `04-quantization/` (QDoRA techniques)
+6. **📚 Examples**: `05-examples/` (Real-world and DeepSeek-R1 applications)
+7. **🔬 Advanced**: `06-advanced-techniques/` (DoRA, PiSSA, MoE)
+8. **🤝 Alignment**: `07-system-prompt-modification/` (RLAIF and Constitutional AI)
+9. **🖥️ Zero-Code**: `08-llamafactory/` (Web interface)
 
 ---
 
 ## 📊 Repository Statistics
 
-![GitHub stars](https://img.shields.io/github/stars/your-username/fine_tuning?style=social)
-![GitHub forks](https://img.shields.io/github/forks/your-username/fine_tuning?style=social)
-![GitHub issues](https://img.shields.io/github/issues/your-username/fine_tuning)
-![GitHub license](https://img.shields.io/github/license/your-username/fine_tuning)
+![GitHub stars](https://img.shields.io/github/stars/beyhanmeyrali/fine-tunning?style=social)
+![GitHub forks](https://img.shields.io/github/forks/beyhanmeyrali/fine-tunning?style=social)
+![GitHub issues](https://img.shields.io/github/issues/beyhanmeyrali/fine-tunning)
+![GitHub license](https://img.shields.io/github/license/beyhanmeyrali/fine-tunning)
 
 **🌟 Star this repository** if it helped you understand the fine-tuning revolution!
 
