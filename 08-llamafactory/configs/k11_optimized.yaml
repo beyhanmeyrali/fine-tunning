@@ -1,0 +1,114 @@
+# LLaMA-Factory Configuration for GMKtec K11
+# ==========================================
+# Optimized for AMD Ryzen 9 8945HS + Radeon 780M
+# Author: Beyhan MEYRALI
+
+### Model Configuration
+model_name: qwen2
+model_name_or_path: Qwen/Qwen2.5-1.5B-Instruct
+template: qwen
+
+### Dataset Configuration
+dataset: demo_dataset
+dataset_dir: ./datasets
+cutoff_len: 1024
+max_samples: 1000
+overwrite_cache: true
+preprocessing_num_workers: 4
+
+### Output Configuration
+output_dir: ./models/qwen2_k11_finetuned
+logging_steps: 10
+save_steps: 500
+eval_steps: 500
+save_total_limit: 2
+overwrite_output_dir: true
+
+### Training Arguments - K11 Optimized
+stage: sft  # Supervised Fine-Tuning
+do_train: true
+finetuning_type: lora
+lora_target: all
+lora_rank: 16
+lora_alpha: 32
+lora_dropout: 0.05
+loraplus_lr_ratio: 16.0
+
+### Hardware Optimization for K11
+per_device_train_batch_size: 2
+gradient_accumulation_steps: 8
+per_device_eval_batch_size: 1
+eval_accumulation_steps: 4
+
+### Learning Configuration
+learning_rate: 5.0e-5
+num_train_epochs: 3
+lr_scheduler_type: cosine
+warmup_steps: 100
+optim: adamw_torch
+
+### Memory and Performance
+fp16: false
+bf16: true  # Better for AMD GPUs
+torch_dtype: bfloat16
+dataloader_pin_memory: false
+dataloader_num_workers: 2
+remove_unused_columns: false
+group_by_length: true
+length_column_name: length
+
+### AMD ROCm Specific Settings
+device_map: auto
+load_in_8bit: false
+load_in_4bit: true
+quantization_bit: 4
+quantization_type: nf4
+double_quant: true
+quant_storage_dtype: bfloat16
+
+### Training Stability
+max_grad_norm: 1.0
+weight_decay: 0.01
+adam_beta2: 0.999
+max_steps: -1
+gradient_checkpointing: true
+
+### Evaluation Settings
+evaluation_strategy: steps
+eval_steps: 500
+do_eval: true
+eval_on_start: false
+metric_for_best_model: eval_loss
+greater_is_better: false
+load_best_model_at_end: true
+
+### Logging and Monitoring
+report_to: tensorboard
+logging_dir: ./logs/k11_training
+run_name: qwen2_k11_experiment
+logging_first_step: true
+logging_nan_inf_filter: true
+save_safetensors: true
+
+### Additional K11 Optimizations
+# These settings are specifically tuned for the K11's
+# AMD Ryzen 9 8945HS + Radeon 780M combination
+
+# CPU optimization (8 cores, 16 threads)
+dataloader_num_workers: 4  # Use half of available cores
+
+# Memory management (32GB+ RAM available)
+max_memory: 
+  cpu: "16GB"  # Reserve 16GB for other processes
+
+# Training speed optimizations
+neftune_noise_alpha: 5.0  # Improves training efficiency
+flash_attn: false  # Disable if not compatible with AMD
+use_fast_tokenizer: true
+model_max_length: 1024
+
+### Experimental Features
+# Uncomment to try advanced techniques
+# use_dora: false  # DoRA integration (when available)
+# use_rslora: false  # Rank-Stabilized LoRA
+# use_unsloth: true  # Unsloth acceleration (if compatible)
