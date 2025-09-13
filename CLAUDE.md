@@ -4,7 +4,8 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 **Created by:** Beyhan MEYRALI  
 **LinkedIn:** https://www.linkedin.com/in/beyhanmeyrali/  
-**Repository:** Fine-Tuning Learning Workspace
+**Repository:** Fine-Tuning Learning Workspace  
+**GitHub:** https://github.com/beyhanmeyrali/fine-tunning
 
 # Fine-Tuning Workspace - Claude Code Reference
 
