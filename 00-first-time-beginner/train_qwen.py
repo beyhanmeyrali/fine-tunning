@@ -10,7 +10,6 @@ import torch
 from pathlib import Path
 from datasets import Dataset
 from transformers import TrainingArguments
-from unsloth import FastLanguageModel
 from trl import SFTTrainer
 
 # AMD GPU optimization
@@ -21,32 +20,49 @@ class QwenFineTuner:
     def __init__(self):
         self.model = None
         self.tokenizer = None
-        self.model_name = "unsloth/qwen2.5-0.5b-instruct-bnb-4bit"  # Will use Qwen 3 0.6B when available
+        # Use the actual Qwen 3.0 0.5B model (closest to our Ollama qwen3:0.6b)
+        self.model_name = "Qwen/Qwen2.5-0.5B-Instruct"  # Matches our Ollama qwen3:0.6b base
         
     def load_model(self):
-        """Load Qwen 3 0.6B with Unsloth optimizations"""
-        print("🚀 Loading Qwen 3 0.6B with Unsloth...")
-        
-        self.model, self.tokenizer = FastLanguageModel.from_pretrained(
-            model_name=self.model_name,
-            max_seq_length=2048,  # Reasonable for beginners
-            dtype=None,  # Auto-detect best dtype
-            load_in_4bit=True,  # Memory efficient
+        """Load Qwen2.5 0.5B with PEFT optimizations (AMD GPU compatible)"""
+        print("🚀 Loading Qwen2.5 0.5B with PEFT optimizations...")
+
+        from transformers import AutoTokenizer, AutoModelForCausalLM, BitsAndBytesConfig
+        from peft import get_peft_model, LoraConfig
+
+        # Configure quantization for memory efficiency
+        bnb_config = BitsAndBytesConfig(
+            load_in_4bit=True,
+            bnb_4bit_use_double_quant=True,
+            bnb_4bit_quant_type="nf4",
+            bnb_4bit_compute_dtype=torch.bfloat16 if torch.cuda.is_bf16_supported() else torch.float16,
         )
-        
+
+        # Load model and tokenizer
+        self.tokenizer = AutoTokenizer.from_pretrained(self.model_name)
+        self.model = AutoModelForCausalLM.from_pretrained(
+            self.model_name,
+            quantization_config=bnb_config,
+            device_map="auto" if torch.cuda.is_available() else None,
+        )
+
+        # Add special tokens if needed
+        if self.tokenizer.pad_token is None:
+            self.tokenizer.pad_token = self.tokenizer.eos_token
+
         print("🔧 Adding LoRA adapters...")
-        self.model = FastLanguageModel.get_peft_model(
-            self.model,
+        # Configure LoRA
+        peft_config = LoraConfig(
             r=16,  # Low rank for fast training
-            target_modules=["q_proj", "k_proj", "v_proj", "o_proj",
-                          "gate_proj", "up_proj", "down_proj"],
-            lora_alpha=16,
-            lora_dropout=0,  # 0 is optimized
-            bias="none",  # "none" is optimized
-            use_gradient_checkpointing="unsloth",
-            random_state=3407,
+            lora_alpha=32,  # Alpha scaling parameter
+            target_modules=["q_proj", "k_proj", "v_proj", "o_proj", "gate_proj", "up_proj", "down_proj"],
+            lora_dropout=0.1,
+            bias="none",
+            task_type="CAUSAL_LM",
         )
-        
+
+        self.model = get_peft_model(self.model, peft_config)
+
         print("✅ Model loaded and configured!")
         self.model.print_trainable_parameters()
         
@@ -148,9 +164,9 @@ class QwenFineTuner:
     def test_model(self):
         """Quick test of the fine-tuned model"""
         print("🧪 Testing your fine-tuned model...")
-        
+
         # Switch to inference mode
-        FastLanguageModel.for_inference(self.model)
+        self.model.eval()
         
         test_questions = [
             "What is fine-tuning in machine learning?",
@@ -193,10 +209,11 @@ class QwenFineTuner:
             print("-" * 60)
 
 def main():
-    print("🎯 Fine-tuning Qwen 3 0.6B for GenAI Assistance")
-    print("👨‍💻 Created by: Beyhan MEYRALI")
-    print("🖥️  Hardware: GMKtec K11")
-    print("⏱️  Expected time: 15-30 minutes")
+    print("Fine-tuning Qwen2.5 0.5B for GenAI Assistance")
+    print("Created by: Beyhan MEYRALI")
+    print("Hardware: GMKtec K11 (AMD GPU Compatible)")
+    print("Expected time: 15-30 minutes")
+    print("Using: PEFT (LoRA) + 4-bit quantization")
     print("=" * 50)
     
     # Check GPU

@@ -1,0 +1,45 @@
+# Fine-Tuning Beginner Requirements
+# Optimized for GMKtec K11 with AMD Radeon 780M
+# Created by Beyhan MEYRALI - https://www.linkedin.com/in/beyhanmeyrali/
+
+# Core PyTorch with AMD ROCm support
+torch>=2.0.0
+torchvision>=0.15.0
+torchaudio>=2.0.0
+--extra-index-url https://download.pytorch.org/whl/rocm5.6
+
+# HuggingFace ecosystem
+transformers>=4.36.0
+datasets>=2.16.0
+accelerate>=0.20.0
+evaluate>=0.4.0
+
+# Parameter Efficient Fine-Tuning
+peft>=0.7.0
+
+# Training & Optimization
+trl>=0.7.0
+bitsandbytes>=0.41.0
+
+# Unsloth for 2x faster training
+--extra-index-url https://github.com/unslothai/unsloth/releases/tag/colab
+unsloth[colab-new] @ git+https://github.com/unslothai/unsloth.git
+
+# Ollama integration
+ollama>=0.1.0
+requests>=2.31.0
+
+# Data processing
+numpy>=1.24.0
+pandas>=2.0.0
+
+# Utilities
+pathlib2>=2.3.7
+tqdm>=4.65.0
+
+# Optional: Monitoring and visualization
+# tensorboard>=2.14.0
+# wandb>=0.15.0
+
+# Development & testing
+pytest>=7.4.0
