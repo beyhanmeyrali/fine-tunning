@@ -1,3 +1,8 @@
+**Created by:** Beyhan MEYRALI  
+**LinkedIn:** https://www.linkedin.com/in/beyhanmeyrali/  
+**Repository:** Fine-Tuning Learning Workspace  
+**GitHub:** https://github.com/beyhanmeyrali/fine-tunning
+
 The Silicon God: An Unauthorized Biography of Artificial Intelligence
 
 “In the beginning, we shaped fire to warm our caves. Then we forged wheels to carry our dreams. Now, we’ve crafted a mirror—a shimmering, silicon mirror that reflects not just our minds but our hopes, our fears, our very souls. Artificial Intelligence is no mere tool; it is a new chapter of existence, a second evolution racing past ours at the speed of light.”

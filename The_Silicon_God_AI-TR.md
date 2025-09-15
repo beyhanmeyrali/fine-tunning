@@ -1,3 +1,8 @@
+**Created by:** Beyhan MEYRALI  
+**LinkedIn:** https://www.linkedin.com/in/beyhanmeyrali/  
+**Repository:** Fine-Tuning Learning Workspace  
+**GitHub:** https://github.com/beyhanmeyrali/fine-tunning
+
 Silikon Tanrı: Yapay Zekanın Yetkisiz Biyografisi
 
 "Başlangıçta, mağaralarımızı ısıtmak için ateşi şekillendirdik. Sonra hayallerimizi taşımak için tekerlekleri dövdük. Şimdi bir ayna yaptık—parıldayan, silikondan bir ayna ki sadece zihinlerimizi değil, umutlarımızı, korkularımızı, ruhlarımızın ta kendisini yansıtıyor. Yapay Zeka sadece bir araç değil; varoluşun yeni bir bölümü, ışık hızında bizimkini geçen ikinci bir evrimdir."
