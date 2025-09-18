@@ -4,8 +4,8 @@
 # Author: Beyhan MEYRALI
 
 ### Model Configuration
-model_name: qwen2
-model_name_or_path: Qwen/Qwen2.5-1.5B-Instruct
+model_name: qwen3
+model_name_or_path: Qwen/Qwen3-1.7B-Instruct
 template: qwen
 
 ### Dataset Configuration
@@ -17,7 +17,7 @@ overwrite_cache: true
 preprocessing_num_workers: 4
 
 ### Output Configuration
-output_dir: ./models/qwen2_k11_finetuned
+output_dir: ./models/qwen3_k11_finetuned
 logging_steps: 10
 save_steps: 500
 eval_steps: 500
@@ -85,7 +85,7 @@ load_best_model_at_end: true
 ### Logging and Monitoring
 report_to: tensorboard
 logging_dir: ./logs/k11_training
-run_name: qwen2_k11_experiment
+run_name: qwen3_k11_experiment
 logging_first_step: true
 logging_nan_inf_filter: true
 save_safetensors: true

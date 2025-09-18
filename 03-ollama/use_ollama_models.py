@@ -51,11 +51,11 @@ def find_huggingface_equivalent(ollama_model_name):
 
     equivalents = {
         # Qwen family
-        "qwen3:0.6b": "Qwen/Qwen2.5-0.5B-Instruct",
-        "qwen3:1b": "Qwen/Qwen2.5-1B-Instruct",
-        "qwen3:8b": "Qwen/Qwen2.5-7B-Instruct",
-        "qwen3:14b": "Qwen/Qwen2.5-14B-Instruct",
-        "qwen3:32b": "Qwen/Qwen2.5-32B-Instruct",
+        "qwen3:0.6b": "Qwen/Qwen3-0.5B-Instruct",
+        "qwen3:1b": "Qwen/Qwen3-1B-Instruct",
+        "qwen3:8b": "Qwen/Qwen3-7B-Instruct",
+        "qwen3:14b": "Qwen/Qwen3-14B-Instruct",
+        "qwen3:32b": "Qwen/Qwen3-32B-Instruct",
 
         # DeepSeek family
         "deepseek-r1:8b": "deepseek-ai/DeepSeek-R1-Distill-Qwen-8B",

@@ -40,7 +40,7 @@ python create_dataset.py
 
 #### Step 4: Train Your AI (15-30 minutes)
 ```bash
-python train_qwen.py
+python train_qwen3.py
 ```
 **What happens**: AI learns from your examples, becomes specialized
 
@@ -80,7 +80,7 @@ python test_trained_model.py
 
 **When you run our training script, this happens:**
 1. Your computer contacts HuggingFace.co
-2. Downloads `Qwen/Qwen2.5-0.5B-Instruct` (the AI model)
+2. Downloads `Qwen/Qwen3-0.5B-Instruct` (the AI model)
 3. Downloads tokenizer files (the AI's vocabulary)
 4. Saves them locally so next time it's instant
 
@@ -296,7 +296,7 @@ Your Project Folder
 
 System Cache
 ├── C:\Users\[You]\.cache\huggingface\
-│   ├── models--Qwen--Qwen2.5-0.5B-Instruct/
+│   ├── models--Qwen--Qwen3-0.5B-Instruct/
 │   │   ├── snapshots/
 │   │   │   ├── model.safetensors (1.2GB)
 │   │   │   ├── tokenizer.json (5MB)
@@ -354,11 +354,11 @@ Everyone works together: "Training complete!"
 
 ### **Step 1: Download Phase (First Time Only)**
 ```
-You run: python train_qwen.py
+You run: python train_qwen3.py
 ↓
 Transformers contacts HuggingFace.co
 ↓
-Downloads: Qwen2.5-0.5B model files (1.2GB)
+Downloads: Qwen3-0.5B model files (1.2GB)
 Downloads: Tokenizer files (5MB)
 ↓
 Saves to: ~/.cache/huggingface/ (for reuse)
@@ -417,13 +417,13 @@ No internet needed for training
 
 ## 🎯 Real Example: What Happens Step by Step
 
-Let's trace through exactly what happens when you run `python train_qwen.py`:
+Let's trace through exactly what happens when you run `python train_qwen3.py`:
 
 ### **Minute 1: Setup & Downloads**
 ```
 [Your computer] Importing libraries...
 [PyTorch] ✓ AI engine started
-[Transformers] Checking HuggingFace for Qwen/Qwen2.5-0.5B-Instruct...
+[Transformers] Checking HuggingFace for Qwen/Qwen3-0.5B-Instruct...
 [Internet] Downloading model files (1.2GB)...
 [Progress] ████████████████████ 100% - 2 minutes
 [Local Cache] Model saved for future use
@@ -461,13 +461,13 @@ Let's trace through exactly what happens when you run `python train_qwen.py`:
 
 **The Beautiful Integration:**
 
-1. **Training**: Use HuggingFace's `Qwen/Qwen2.5-0.5B-Instruct`
+1. **Training**: Use HuggingFace's `Qwen/Qwen3-0.5B-Instruct`
 2. **Fine-tuning**: Create your custom version
 3. **Deployment**: Convert to Ollama format
 4. **Usage**: `ollama run my-custom-model`
 
 **Why this works perfectly:**
-- Same base model family (Qwen2.5)
+- Same base model family (Qwen3)
 - Compatible architectures
 - Seamless conversion process
 - Best of both worlds: HuggingFace training + Ollama deployment
@@ -605,7 +605,7 @@ Look for these signs:
 ```bash
 cd "D:\cabs\workspace\fine-tunning\00-first-time-beginner"
 .venv\Scripts\activate
-python train_qwen.py
+python train_qwen3.py
 ```
 
 **Watch the magic happen** - you'll see each library doing its job, the model downloading from HuggingFace, and your personal AI being created step by step!

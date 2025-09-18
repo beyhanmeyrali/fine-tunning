@@ -76,7 +76,7 @@ def show_hardware_recommendations():
     print("For your GMKtec K11 with AMD Radeon 780M:")
     print()
     print("Recommended Models:")
-    print("  - Qwen2.5 0.5B/0.6B (Best for beginners)")
+    print("  - Qwen3 0.5B/0.6B (Best for beginners)")
     print("  - Phi-3 Mini 4K (Microsoft's efficient model)")
     print("  - Gemma 2B (Google's lightweight model)")
     print()

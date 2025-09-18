@@ -22,7 +22,7 @@ os.environ["PYTORCH_ROCM_ARCH"] = "gfx1100"
 os.environ["HSA_OVERRIDE_GFX_VERSION"] = "11.0.0"
 
 class UnrestrictedQwenTrainer:
-    def __init__(self, model_name="Qwen/Qwen2.5-0.5B-Instruct"):
+    def __init__(self, model_name="Qwen/Qwen3-0.6B-Instruct"):
         self.model_name = model_name
         self.model = None
         self.tokenizer = None

@@ -120,8 +120,8 @@ def print_webui_guide():
     
     print("\n1️⃣ MODEL SELECTION:")
     print("   • Go to 'Train' tab")
-    print("   • Choose 'Model name': qwen2 (good for beginners)")
-    print("   • Select 'Model path': Qwen/Qwen2.5-1.5B-Instruct")
+    print("   • Choose 'Model name': qwen3 (latest generation)")
+    print("   • Select 'Model path': Qwen/Qwen3-0.6B-Instruct (or Qwen3-1.7B-Instruct)")
     
     print("\n2️⃣ DATASET CONFIGURATION:")
     print("   • Select 'Dataset': Browse and upload your demo_dataset.json")
@@ -159,7 +159,7 @@ def print_webui_guide():
     
     print("\n🔗 Useful Links:")
     print("   • Documentation: https://llamafactory.readthedocs.io/")
-    print("   • Supported Models: 100+ including Qwen, LLaMA, Mistral")
+    print("   • Supported Models: 100+ including Qwen3, LLaMA, Mistral")
     print("   • GitHub Issues: For troubleshooting")
 
 def main():

@@ -93,8 +93,8 @@ def create_base_model():
     
     # Train base model with SFT
     sft_config = {
-        "model_name": "qwen2",
-        "model_name_or_path": "Qwen/Qwen2.5-1.5B-Instruct",
+        "model_name": "qwen3",
+        "model_name_or_path": "Qwen/Qwen3-1.7B-Instruct",
         "template": "qwen",
         "dataset": "sft_base",
         "dataset_dir": "./datasets",
@@ -132,8 +132,8 @@ def run_dpo_training(base_model_path):
     print("\n🎯 Step 2: Running DPO alignment training...")
     
     dpo_config = {
-        "model_name": "qwen2",
-        "model_name_or_path": "Qwen/Qwen2.5-1.5B-Instruct",
+        "model_name": "qwen3",
+        "model_name_or_path": "Qwen/Qwen3-1.7B-Instruct",
         "adapter_name_or_path": base_model_path,  # Use base SFT model
         "template": "qwen",
         "dataset": "preference_dataset",

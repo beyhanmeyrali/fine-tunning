@@ -113,7 +113,7 @@ Step 2: PyTorch starts the AI engine
         ↓
 Step 3: Transformers contacts HuggingFace.co
         ↓
-Step 4: Downloads AI model (first time: 1-2GB, then cached)
+Step 4: Downloads Qwen3 model (first time: 1-2GB, then cached)
         ↓
 Step 5: BitsAndBytes compresses model (2GB → 500MB)
         ↓
@@ -125,7 +125,7 @@ Step 8: TRL manages the training process
         ↓
 Step 9: PyTorch does millions of calculations
         ↓
-Step 10: Your custom AI is ready!
+Step 10: Your custom Qwen3 AI is ready!
 ```
 
 ### 💾 What Gets Downloaded and Where
@@ -340,13 +340,13 @@ Datasets (plugs into TRL)
 
 ### 🎯 The Magic Moment: Step-by-Step
 
-**When you run `python train_qwen.py`:**
+**When you run `python train_qwen3.py`:**
 
 ```
 [Minute 1: Setup & Downloads]
 [Your computer] Importing libraries...
 [PyTorch] ✓ AI engine started
-[Transformers] Checking HuggingFace for Qwen/Qwen2.5-0.5B-Instruct...
+[Transformers] Checking HuggingFace for Qwen/Qwen3-0.6B-Instruct...
 [Internet] Downloading model files (1.2GB)...
 [Progress] ████████████████████ 100% - 2 minutes
 [Local Cache] Model saved for future use
@@ -593,7 +593,7 @@ Perhaps most importantly, PiSSA models learned faster. In our tutorial environme
 - **Less electricity cost** (important for those long training sessions)
 - **Faster experimentation cycles** (try more ideas in the same time)
 
-> **🎯 Tutorial Connection**: PiSSA techniques are integrated into our `06-advanced-techniques/` module. When you compare initialization strategies in the tutorials, you'll see how starting "smart" beats starting "random" every time. It's particularly noticeable in our `00-first-time-beginner/` Mistral Large 2 examples—the same model that takes 30 minutes with random initialization can converge in 15 minutes with PiSSA!
+> **🎯 Tutorial Connection**: PiSSA techniques are integrated into our `06-advanced-techniques/` module. When you compare initialization strategies in the tutorials, you'll see how starting "smart" beats starting "random" every time. It's particularly noticeable in our `00-first-time-beginner/` Qwen3 examples—the same model that takes 30 minutes with random initialization can converge in 15 minutes with PiSSA!
 
 **📚 Learn More:**
 - **Research Paper**: [PiSSA: Principal Singular Values and Singular Vectors Adaptation](https://arxiv.org/abs/2404.02948)
@@ -677,7 +677,7 @@ The creators of LLaMA-Factory realized something profound: not everyone who need
 
 LLaMA-Factory introduced something revolutionary: a web interface for fine-tuning. You could:
 
-- **Select from 100+ models** including the latest releases like Mistral Large 2
+- **Select from 100+ models** including the latest releases like Qwen3
 - **Choose your training method** (LoRA, DoRA, RLHF) from dropdown menus
 - **Upload your data** by dragging and dropping files
 - **Monitor training** with real-time charts and graphs
@@ -691,7 +691,7 @@ llamafactory-cli webui
 
 **The Day-0 Promise**
 
-Perhaps most remarkably, LLaMA-Factory committed to "Day-0" support for new models. When Meta released Llama 3.1, it was supported in LLaMA-Factory within hours. When Mistral Large 2 dropped, it was there immediately.
+Perhaps most remarkably, LLaMA-Factory committed to "Day-0" support for new models. When Meta released Llama 3.1, it was supported in LLaMA-Factory within hours. When Qwen3 dropped, it was there immediately.
 
 This wasn't just convenience—it was revolution. Previously, waiting 3-6 months for framework support was normal. LLaMA-Factory made cutting-edge models accessible instantly.
 
@@ -751,7 +751,7 @@ The real drama unfolded on January 27, 2025, when DeepSeek’s chatbot surged to
 
 Yet, amidst the chaos, DeepSeek’s open-source ethos sparked a global renaissance. Startups and hobbyists, armed with R1’s code, began crafting bespoke AI solutions, from financial advisors to medical diagnostics, all running on consumer-grade hardware.
 
-> **🎯 Tutorial Connection**: Explore DeepSeek-R1 in our `05-examples/` module, where you can fine-tune it using LLaMA-Factory on the K11. Compare its MoE efficiency to Mistral Large 2 in `06-advanced-techniques/` and deploy it locally with `03-ollama/` for real-world applications.
+> **🎯 Tutorial Connection**: Explore DeepSeek-R1 in our `05-examples/` module, where you can fine-tune it using LLaMA-Factory on the K11. Compare its MoE efficiency to Qwen3 in `06-advanced-techniques/` and deploy it locally with `03-ollama/` for real-world applications.
 
 **📚 Learn More:**
 - **DeepSeek Announcement**: [DeepSeek-R1 Release](https://www.deepseek.com/)
@@ -798,7 +798,7 @@ When you teach these concepts, you're not just explaining techniques—you're sh
 Give students actual clay. Have some use crude tools (LoRA), others use precision instruments (DoRA), and some wield DeepSeek’s MoE efficiency. Which sculptures turn out better? Why?
 
 **The Memory Game**
-Show RAM usage in real-time as you load Mistral Large 2 or DeepSeek-R1. Watch memory drop from 32GB to 8GB with quantization in `04-quantization/`.
+Show RAM usage in real-time as you load Qwen3 or DeepSeek-R1. Watch memory drop from 32GB to 8GB with quantization in `04-quantization/`.
 
 **The Performance Race**
 Run identical fine-tuning tasks with LoRA vs DoRA vs DeepSeek-R1 in `06-advanced-techniques/`. Students see accuracy soar in real-time, witnessing the future outpace the past.
@@ -831,7 +831,7 @@ From Hu’s LoRA to DeepSeek’s R1, one pattern shines: **breakthroughs come fr
 ### Your Students' Opportunity
 
 Your students have the same tools that created these breakthroughs:
-- **Cutting-edge models** like Mistral Large 2 and DeepSeek-R1 via Hugging Face
+- **Cutting-edge models** like Qwen3 and DeepSeek-R1 via Hugging Face
 - **Powerful techniques** (LoRA, DoRA, RLAIF, MoE) 
 - **Affordable hardware** like the K11
 - **Open-source frameworks** that democratize experimentation
@@ -851,7 +851,7 @@ Most importantly, they have **fresh eyes** to see what others missed.
 ### **Hands-On Journey Through History**
 
 **Module Path Through the Breakthroughs:**
-- `00-first-time-beginner/`: Experience the impossible dream with Mistral Large 2
+- `00-first-time-beginner/`: Experience the impossible dream with Qwen3
 - `01-unsloth/`: Accelerate training with Unsloth's 2x speed boost
 - `02-huggingface-peft/`: Master Hu's LoRA foundation
 - `03-ollama/`: **NEW** - Hybrid workflow: Use existing Ollama models + HuggingFace training
@@ -1007,7 +1007,7 @@ llamafactory-cli webui  # Opens web interface
 ```
 
 ### Learning Path
-1. **🎯 Start**: `00-first-time-beginner/` (Mistral Large 2, 30 minutes)
+1. **🎯 Start**: `00-first-time-beginner/` (Qwen3, 30 minutes)
 2. **⚡ Speed**: `01-unsloth/` (2x faster training)
 3. **🔧 Standard**: `02-huggingface-peft/` (LoRA fundamentals)
 4. **🚀 Deploy**: `03-ollama/` (Local model deployment)

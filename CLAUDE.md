@@ -35,7 +35,7 @@ This workspace is a comprehensive learning environment for model fine-tuning, sp
 - **Minimal quality loss** (2-5% degradation)
 - **Enable larger models** on consumer hardware
 
-**Tools:** BitsAndBytesConfig, GPTQ, AWQ, GGML/GGUF
+**Tools:** BitsAndBytesConfig, GPTQ, AWQ, GGML/GGUF, MLX (4-bit, 6-bit, 8-bit)
 
 #### 3. **AMD ROCm Optimization**
 **What:** Leverage AMD GPU acceleration instead of NVIDIA-only solutions
@@ -86,6 +86,16 @@ This workspace is a comprehensive learning environment for model fine-tuning, sp
 - **Scalable training** without expensive human labeling
 
 **Tools:** RLAIF, Constitutional training, PERL, DPO, PPO
+
+#### 8. **Qwen3 Advanced Features**
+**What:** Latest generation models with improved reasoning and thinking capabilities
+**Why:**
+- **Better small models**: Qwen3-0.6B/1.7B outperform previous generations
+- **Thinking models**: Enhanced reasoning for complex problem-solving
+- **Superior quantization**: MLX formats (4-bit, 6-bit, 8-bit) optimized for efficiency
+- **Extended model range**: 0.6B to 235B parameters for all use cases
+
+**Tools:** Qwen3 base/instruct/thinking variants, MLX quantization, advanced fine-tuning
 
 ### **Strategic Framework Selection Reasoning**
 
@@ -205,11 +215,11 @@ This progressive approach ensures you build **foundational understanding** befor
 
 ```
 D:\cabs\workspace\ai_bm\fine_tunning\
-├── 00-first-time-beginner/    # Start here: Qwen2.5 0.6B tutorial
+├── 00-first-time-beginner/    # Start here: Qwen3 0.6B tutorial
 ├── 01-unsloth/               # Fastest method (2x speed, 70% less memory)
 ├── 02-huggingface-peft/      # Industry standard (LoRA, QLoRA, PEFT)
 ├── 03-ollama/                # Local model management & inference
-├── 04-quantization/          # Memory optimization (4-bit, 8-bit)
+├── 04-quantization/          # Memory optimization (4-bit, 8-bit, MLX formats)
 ├── 05-examples/              # Real-world projects
 ├── 06-advanced-techniques/   # REFRAG RAG implementation
 ├── 07-system-prompt-modification/ # Unrestricted model training
@@ -224,11 +234,11 @@ D:\cabs\workspace\ai_bm\fine_tunning\
 ### Recommended Learning Sequence
 
 #### **Foundation Track (Week 1-2)**
-1. **Beginner** → `00-first-time-beginner/` (Qwen2.5 0.6B, ~1 hour total)
+1. **Beginner** → `00-first-time-beginner/` (Qwen3 0.6B, ~1 hour total)
 2. **Speed Optimization** → `01-unsloth/` (fastest, easiest)
 3. **Industry Standard** → `02-huggingface-peft/` (LoRA/QLoRA)
 4. **Local Management** → `03-ollama/` (deployment & inference)
-5. **Memory Optimization** → `04-quantization/` (4-bit, 8-bit techniques)
+5. **Memory Optimization** → `04-quantization/` (4-bit, 8-bit, MLX techniques)
 
 #### **Application Track (Week 2-3)**
 6. **Real Projects** → `05-examples/` (code assistant, chatbots)
@@ -293,7 +303,7 @@ python simple_example.py  # 10-20 minute demo
 cd 00-first-time-beginner/
 python test_setup.py      # Verify setup
 python create_dataset.py  # Prepare data
-python train_qwen.py      # Train model
+python train_qwen3.py     # Train Qwen3 model
 ```
 
 **Code assistant project**:
@@ -304,6 +314,62 @@ python train_code_assistant.py --full     # 2-3 hours
 ```
 
 ## ⚙️ Hardware-Specific Configurations
+
+### Qwen3-Specific Configurations for K11
+
+**Qwen3-0.6B (Ultra-Fast Training)**:
+```python
+QWEN3_0_6B_CONFIG = {
+    "model_name": "Qwen/Qwen3-0.6B-Instruct",
+    "per_device_train_batch_size": 8,
+    "gradient_accumulation_steps": 2,
+    "max_seq_length": 2048,
+    "bits": 16,  # Full precision possible
+    "learning_rate": 2e-4,
+    "num_train_epochs": 3,
+}
+```
+
+**Qwen3-1.7B (Balanced Performance)**:
+```python
+QWEN3_1_7B_CONFIG = {
+    "model_name": "Qwen/Qwen3-1.7B-Instruct",
+    "per_device_train_batch_size": 4,
+    "gradient_accumulation_steps": 4,
+    "max_seq_length": 2048,
+    "bits": 8,  # 8-bit quantization
+    "learning_rate": 1e-4,
+    "num_train_epochs": 3,
+}
+```
+
+**Qwen3-4B (Advanced Target)**:
+```python
+QWEN3_4B_CONFIG = {
+    "model_name": "Qwen/Qwen3-4B-Instruct",
+    "per_device_train_batch_size": 2,
+    "gradient_accumulation_steps": 8,
+    "max_seq_length": 1024,
+    "bits": 4,  # 4-bit quantization required
+    "double_quant": True,
+    "learning_rate": 5e-5,
+    "num_train_epochs": 2,
+}
+```
+
+**Qwen3 Thinking Models (Reasoning Tasks)**:
+```python
+QWEN3_THINKING_CONFIG = {
+    "model_name": "Qwen/Qwen3-0.6B-Thinking",  # When available
+    "per_device_train_batch_size": 4,
+    "gradient_accumulation_steps": 4,
+    "max_seq_length": 2048,
+    "bits": 8,
+    "learning_rate": 1e-4,
+    "num_train_epochs": 5,  # More epochs for reasoning
+    "dataset_type": "reasoning_chains",  # Custom dataset format
+}
+```
 
 ### Memory Settings for 32GB RAM K11
 
@@ -342,16 +408,19 @@ EXTREME_CONFIG = {
 ### Recommended Models by Memory Usage
 
 **Beginner-friendly (2-4GB VRAM)**:
-- Qwen2.5 0.6B
+- Qwen3 0.6B/1.7B (latest generation)
+- Qwen3 4B (with 4-bit quantization)
 - Phi-3 Mini 4K
 - Gemma 2B
 
 **Intermediate (4-6GB VRAM)**:
+- Qwen3 8B (with quantization)
 - Llama 2 7B
 - CodeLlama 7B
 - Mistral 7B
 
 **Advanced (6-8GB VRAM with optimizations)**:
+- Qwen3 14B (with 4-bit quantization + CPU offload)
 - Llama 2 13B (with 4-bit quantization)
 - CodeLlama 13B (QLoRA)
 
@@ -460,7 +529,7 @@ learning_rate = 5e-4
 ```python
 # Use smaller sequence length and model
 max_seq_length = 512
-model_name = "Qwen/Qwen2.5-0.5B-Instruct"
+model_name = "Qwen/Qwen3-0.6B-Instruct"  # Or Qwen3-1.7B-Instruct
 ```
 
 ## 📁 Key Files to Know
@@ -472,7 +541,7 @@ model_name = "Qwen/Qwen2.5-0.5B-Instruct"
 ### Example Scripts
 - `01-unsloth/simple_example.py` - Basic Unsloth demo (~20 minutes)
 - `05-examples/code_assistant/train_code_assistant.py` - Full project example
-- `00-first-time-beginner/train_qwen.py` - Beginner-friendly first fine-tune
+- `00-first-time-beginner/train_qwen3.py` - Beginner-friendly Qwen3 fine-tune
 
 ### Setup & Testing
 - `00-first-time-beginner/test_setup.py` - Verify environment
@@ -482,7 +551,7 @@ model_name = "Qwen/Qwen2.5-0.5B-Instruct"
 
 **For absolute beginners**:
 1. Start with `00-first-time-beginner/` tutorial
-2. Use Qwen2.5 0.6B model (~15-30 minutes training)
+2. Use Qwen3 0.6B model (~15-30 minutes training)
 3. Follow step-by-step guides: setup → data → training
 
 **For developers**:
