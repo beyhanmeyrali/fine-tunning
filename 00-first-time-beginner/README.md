@@ -1,5 +1,40 @@
 # 🎓 Your First AI Fine-Tuning Journey: Complete Beginner's Guide
 
+## 🎯 What You'll Learn & Why It Matters
+
+**Transform from AI User to AI Creator in 30 Minutes!**
+
+This tutorial teaches you how to **fine-tune your own custom AI model** from scratch using cutting-edge techniques that cost $2 instead of $200. You'll go from having zero fine-tuning knowledge to running your own personalized AI that knows your specific domain.
+
+### **🚀 What This Tutorial Does:**
+- **Creates YOUR Custom AI**: Train a Qwen3 0.6B model to know about you, your work, or any domain
+- **Teaches Core Concepts**: LoRA, PEFT, quantization, and memory optimization
+- **Hands-On Learning**: Real code, real training, real results in 10-15 minutes
+- **Complete Pipeline**: Data → Training → Testing → Deployment
+
+### **🎓 What You'll Master:**
+- **Parameter Efficient Fine-Tuning (PEFT)**: Train only 1.66% of parameters for 95% memory savings
+- **LoRA Adapters**: Add specialized knowledge without changing the base model
+- **Memory Optimization**: 4-bit quantization and gradient accumulation techniques
+- **Training Dynamics**: Understanding loss, epochs, learning rates, and evaluation
+- **Model Testing**: Verify your AI learned specialized knowledge correctly
+
+### **💡 Why This Matters:**
+- **Cost Efficiency**: $2 local training vs $50-200 cloud costs
+- **Privacy**: Your data never leaves your computer
+- **Reusability**: Use same setup to train unlimited specialized models
+- **Career Skills**: PEFT is the industry standard for efficient AI training
+- **Foundation**: Gateway to advanced techniques (DoRA, QDoRA, RLHF)
+
+### **🏆 By The End, You'll Have:**
+✅ A working custom AI that knows your specific domain
+✅ Understanding of modern fine-tuning architecture
+✅ Hands-on experience with HuggingFace, PEFT, and PyTorch
+✅ Complete training pipeline from data to deployment
+✅ Foundation to tackle larger models and advanced techniques
+
+---
+
 **Created by:** [Beyhan MEYRALI](https://www.linkedin.com/in/beyhanmeyrali/)
 **Optimized for:** [GMKtec K11](https://www.gmktec.com/products/amd-ryzen%E2%84%A2-9-8945hs-nucbox-k11) (AMD Ryzen 9 8945HS + Radeon 780M)
 **GitHub:** https://github.com/beyhanmeyrali/fine-tunning
@@ -686,7 +721,9 @@ python test_trained_model.py
 
 ## 📁 File Locations & What Gets Created
 
-### **During Training, These Files Are Created:**
+**📌 Important:** Model files are generated locally during training and not included in this repository. Users create these by running the training scripts.
+
+### **During Training, These Files Are Created Locally:**
 
 #### **1. Training Data (`data/` directory)**
 ```
