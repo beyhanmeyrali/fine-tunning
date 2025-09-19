@@ -115,18 +115,18 @@ def expand_dataset(base_dataset, multiplier=10):
     return expanded
 
 def main():
-    print("📊 Creating GenAI training dataset...")
+    print("[INFO] Creating GenAI training dataset...")
     
     # Create base dataset
     base_data = create_genai_dataset()
-    print(f"✅ Created {len(base_data)} base examples")
+    print(f"[OK] Created {len(base_data)} base examples")
     
     # Format for training
     formatted_data = format_for_training(base_data)
     
     # Expand dataset for better training
     expanded_data = expand_dataset(formatted_data, multiplier=15)
-    print(f"✅ Expanded to {len(expanded_data)} training examples")
+    print(f"[OK] Expanded to {len(expanded_data)} training examples")
     
     # Split train/validation (90/10)
     train_size = int(0.9 * len(expanded_data))
@@ -144,15 +144,15 @@ def main():
         json.dump(val_data, f, indent=2)
     
     # Save a preview
-    print("\n📝 Sample training example:")
+    print("\n[SAMPLE] Sample training example:")
     print("-" * 50)
     print(train_data[0]["text"])
     print("-" * 50)
     
-    print(f"\n✅ Datasets saved:")
-    print(f"   📁 Training: {len(train_data)} examples -> data/train_dataset.json")
-    print(f"   📁 Validation: {len(val_data)} examples -> data/val_dataset.json")
-    print(f"\n🎯 Ready for Step 3: Fine-tuning!")
+    print(f"\n[SUCCESS] Datasets saved:")
+    print(f"   [FILE] Training: {len(train_data)} examples -> data/train_dataset.json")
+    print(f"   [FILE] Validation: {len(val_data)} examples -> data/val_dataset.json")
+    print(f"\n[READY] Ready for Step 3: Fine-tuning!")
 
 if __name__ == "__main__":
     main()

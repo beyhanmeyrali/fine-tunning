@@ -1,0 +1,74 @@
+[
+  {
+    "text": "Below is an instruction that describes a task. Write a response that appropriately completes the request.\n\n### Instruction:\nWhat's the role of embeddings in GenAI?\n\n### Response:\nEmbeddings convert text into numerical vectors that capture semantic meaning. They're crucial for RAG systems, similarity search, clustering, and many other GenAI applications."
+  },
+  {
+    "text": "Below is an instruction that describes a task. Write a response that appropriately completes the request.\n\n### Instruction:\nExplain the transformer architecture simply\n\n### Response:\nTransformers use attention mechanisms to understand relationships between words regardless of distance. They process sequences in parallel (not sequentially) making them faster and better at long-range dependencies."
+  },
+  {
+    "text": "Below is an instruction that describes a task. Write a response that appropriately completes the request.\n\n### Instruction:\nHow to evaluate a fine-tuned model?\n\n### Response:\nUse both automated metrics (BLEU, ROUGE, perplexity) and human evaluation. Test on held-out data, check for overfitting, and evaluate on your specific use case, not just benchmarks."
+  },
+  {
+    "text": "Below is an instruction that describes a task. Write a response that appropriately completes the request.\n\n### Instruction:\nCan you explain fine-tuning briefly?\n\n### Response:\nFine-tuning adapts a pre-trained model to specific tasks using targeted data. It's efficient and effective for customizing AI models to your needs."
+  },
+  {
+    "text": "Below is an instruction that describes a task. Write a response that appropriately completes the request.\n\n### Instruction:\nTips for better LLM prompts?\n\n### Response:\nBe specific and clear. Provide examples of desired output. Use step-by-step instructions for complex tasks. Specify format requirements upfront."
+  },
+  {
+    "text": "Below is an instruction that describes a task. Write a response that appropriately completes the request.\n\n### Instruction:\nWhy use smaller models over larger ones?\n\n### Response:\nSmaller models are faster, cheaper to run, easier to fine-tune, and often sufficient for focused tasks. Start small, then scale if needed."
+  },
+  {
+    "text": "Below is an instruction that describes a task. Write a response that appropriately completes the request.\n\n### Instruction:\nCan you explain fine-tuning briefly?\n\n### Response:\nFine-tuning adapts a pre-trained model to specific tasks using targeted data. It's efficient and effective for customizing AI models to your needs."
+  },
+  {
+    "text": "Below is an instruction that describes a task. Write a response that appropriately completes the request.\n\n### Instruction:\nTips for better LLM prompts?\n\n### Response:\nBe specific and clear. Provide examples of desired output. Use step-by-step instructions for complex tasks. Specify format requirements upfront."
+  },
+  {
+    "text": "Below is an instruction that describes a task. Write a response that appropriately completes the request.\n\n### Instruction:\nWhy use smaller models over larger ones?\n\n### Response:\nSmaller models are faster, cheaper to run, easier to fine-tune, and often sufficient for focused tasks. Start small, then scale if needed."
+  },
+  {
+    "text": "Below is an instruction that describes a task. Write a response that appropriately completes the request.\n\n### Instruction:\nCan you explain fine-tuning briefly?\n\n### Response:\nFine-tuning adapts a pre-trained model to specific tasks using targeted data. It's efficient and effective for customizing AI models to your needs."
+  },
+  {
+    "text": "Below is an instruction that describes a task. Write a response that appropriately completes the request.\n\n### Instruction:\nTips for better LLM prompts?\n\n### Response:\nBe specific and clear. Provide examples of desired output. Use step-by-step instructions for complex tasks. Specify format requirements upfront."
+  },
+  {
+    "text": "Below is an instruction that describes a task. Write a response that appropriately completes the request.\n\n### Instruction:\nWhy use smaller models over larger ones?\n\n### Response:\nSmaller models are faster, cheaper to run, easier to fine-tune, and often sufficient for focused tasks. Start small, then scale if needed."
+  },
+  {
+    "text": "Below is an instruction that describes a task. Write a response that appropriately completes the request.\n\n### Instruction:\nCan you explain fine-tuning briefly?\n\n### Response:\nFine-tuning adapts a pre-trained model to specific tasks using targeted data. It's efficient and effective for customizing AI models to your needs."
+  },
+  {
+    "text": "Below is an instruction that describes a task. Write a response that appropriately completes the request.\n\n### Instruction:\nTips for better LLM prompts?\n\n### Response:\nBe specific and clear. Provide examples of desired output. Use step-by-step instructions for complex tasks. Specify format requirements upfront."
+  },
+  {
+    "text": "Below is an instruction that describes a task. Write a response that appropriately completes the request.\n\n### Instruction:\nWhy use smaller models over larger ones?\n\n### Response:\nSmaller models are faster, cheaper to run, easier to fine-tune, and often sufficient for focused tasks. Start small, then scale if needed."
+  },
+  {
+    "text": "Below is an instruction that describes a task. Write a response that appropriately completes the request.\n\n### Instruction:\nCan you explain fine-tuning briefly?\n\n### Response:\nFine-tuning adapts a pre-trained model to specific tasks using targeted data. It's efficient and effective for customizing AI models to your needs."
+  },
+  {
+    "text": "Below is an instruction that describes a task. Write a response that appropriately completes the request.\n\n### Instruction:\nTips for better LLM prompts?\n\n### Response:\nBe specific and clear. Provide examples of desired output. Use step-by-step instructions for complex tasks. Specify format requirements upfront."
+  },
+  {
+    "text": "Below is an instruction that describes a task. Write a response that appropriately completes the request.\n\n### Instruction:\nWhy use smaller models over larger ones?\n\n### Response:\nSmaller models are faster, cheaper to run, easier to fine-tune, and often sufficient for focused tasks. Start small, then scale if needed."
+  },
+  {
+    "text": "Below is an instruction that describes a task. Write a response that appropriately completes the request.\n\n### Instruction:\nCan you explain fine-tuning briefly?\n\n### Response:\nFine-tuning adapts a pre-trained model to specific tasks using targeted data. It's efficient and effective for customizing AI models to your needs."
+  },
+  {
+    "text": "Below is an instruction that describes a task. Write a response that appropriately completes the request.\n\n### Instruction:\nTips for better LLM prompts?\n\n### Response:\nBe specific and clear. Provide examples of desired output. Use step-by-step instructions for complex tasks. Specify format requirements upfront."
+  },
+  {
+    "text": "Below is an instruction that describes a task. Write a response that appropriately completes the request.\n\n### Instruction:\nWhy use smaller models over larger ones?\n\n### Response:\nSmaller models are faster, cheaper to run, easier to fine-tune, and often sufficient for focused tasks. Start small, then scale if needed."
+  },
+  {
+    "text": "Below is an instruction that describes a task. Write a response that appropriately completes the request.\n\n### Instruction:\nCan you explain fine-tuning briefly?\n\n### Response:\nFine-tuning adapts a pre-trained model to specific tasks using targeted data. It's efficient and effective for customizing AI models to your needs."
+  },
+  {
+    "text": "Below is an instruction that describes a task. Write a response that appropriately completes the request.\n\n### Instruction:\nTips for better LLM prompts?\n\n### Response:\nBe specific and clear. Provide examples of desired output. Use step-by-step instructions for complex tasks. Specify format requirements upfront."
+  },
+  {
+    "text": "Below is an instruction that describes a task. Write a response that appropriately completes the request.\n\n### Instruction:\nWhy use smaller models over larger ones?\n\n### Response:\nSmaller models are faster, cheaper to run, easier to fine-tune, and often sufficient for focused tasks. Start small, then scale if needed."
+  }
+]
